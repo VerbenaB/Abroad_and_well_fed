@@ -15,7 +15,7 @@ def reviews():
 # NEW
 @reviews_blueprint.route("/reviews/new", methods=['GET'])
 def new_review():
-    users = user_repository.select()
+    users = user_repository.select_all()
     restaurants = restaurant_repository.select_all()
     return render_template("reviews/new.html", users=users, restaurants=restaurants)
 
