@@ -1,11 +1,12 @@
 from db.run_sql import run_sql
 from models.restaurant import Restaurant
+from models.user import User
 
 def save(restaurant):
     sql = "INSERT INTO restaurants (name, category) VALUES (%s, %s) RETURNING id"
     values = [restaurant.name, restaurant.category]
     results = run_sql(sql, values)
-    restaurant.id = restaurant[0]['id']
+    restaurant.id = results[0]['id']
     return restaurant
 
 def select_all():
@@ -36,6 +37,8 @@ def delete(id):
     sql = "DELETE FROM restaurants WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+
 
 
 

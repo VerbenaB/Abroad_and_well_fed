@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 from models.user import User
 
-def safe(user):
+def save(user):
     sql = "INSERT INTO users (name) VALUES (%s) RETURNING id"
     values = [user.name]
     results = run_sql(sql, values)
