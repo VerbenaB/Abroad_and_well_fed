@@ -17,9 +17,9 @@ def select_all():
     sql = "SELECT * FROM reviews"
     results = run_sql(sql)
 
-    for row in reviews:
-        user = user = user_repository.select(row['user_id'])
-        restaurant = restaurant_repository.select(row['location_id'])
+    for row in results:
+        user = user_repository.select(row['user_id'])
+        restaurant = restaurant_repository.select(row['restaurant_id'])
         review = Review(user, restaurant, row['review'], row['id'])
         reviews.append(review)
     return reviews
