@@ -38,7 +38,18 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def users(restaurant):
+    users = []
 
+    sql = "SELECT users.* FROM users INNER JOIN reviews ON reviews.user_id = users.id WHERE reviews.restaurant_id = %s "
+    values = [restaurant.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        user = User(row['name'], row['id'])
+        users.append(user)
+
+    return users
 
 
 

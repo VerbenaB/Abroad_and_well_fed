@@ -10,4 +10,8 @@ def restaurants():
     restaurants = restaurant_repository.select_all()
     return render_template("restaurants/index.html", restaurants = restaurants)
 
+@restaurants_blueprint.route("/restaurants/<id>")
+def show(id):
+    restaurant = restaurant_repository.select(id)
+
     
