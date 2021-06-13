@@ -18,6 +18,6 @@ CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     restaurant_id INT REFERENCES restaurants(id) ON DELETE CASCADE,
-    review TEXT
+    feedback TEXT
 );
 

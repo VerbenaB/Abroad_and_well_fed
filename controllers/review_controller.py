@@ -12,4 +12,24 @@ def reviews():
     reviews = review_repository.select_all()
     return render_template("reviews/index.html", reviews = reviews)
 
+# NEW
+@reviews_blueprint.route("/reviews/new", methods=['GET'])
+def new_review():
+    users = user_repository.select()
+    restaurants = restaurant_repository.select_all()
+    return render_template("reviews/new.html", users=users, restaurants=restaurants)
+
+# CREATE
+@reviews_blueprint.route("/reviews", methods=['POST'])
+def create_review():
+    user_id = request.form['user_id']
+    restaurant_id =request.form['restaurant_id']
+    feedback = request.form['feedback']
+    user = user_repository.select(user_id)
+    restaurant = restaurant_repository.select(restaurant_id)
+    review = Review(user, restaurant, feedback)
+    review_repository.save(review)
+    return redirect ('/reviews')
+
+
     
