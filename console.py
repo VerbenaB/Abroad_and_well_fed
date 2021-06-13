@@ -55,18 +55,20 @@ review4 = Review(user3, restaurant4, '3.5 stars, Good vibes, excellent cake sele
 review_repository.save(review4)
 
 review5 = Review(user4, restaurant4, '3 stars, Cute place but I average coffe')
-review_repository.save(review1)
+review_repository.save(review5)
 
 review6 = Review(user3, restaurant5, '4.5 stars, Tiny place on Leith street that offers Sicilian delicatesse at good price. Lovely owners')
 review_repository.save(review6)
 
 review7 = Review(user4, restaurant1, '5 stars, Great pizza selection, my go-to pizzeria')
-review_repository.save(review1)
+review_repository.save(review7)
 
 review8 = Review(user1, restaurant6, '4 stars, excelletn selection for an aperitivo at competitive prices')
-review_repository.save(review1)
+review_repository.save(review8)
 
 restaurants = user_repository.restaurants(user1)
+
+users = restaurant_repository.users(restaurant1)
 
 
 pdb.set_trace()
