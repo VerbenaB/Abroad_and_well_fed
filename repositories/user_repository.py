@@ -1,5 +1,7 @@
 from db.run_sql import run_sql
 from models.user import User
+from models.restaurant import Restaurant
+
 
 def save(user):
     sql = "INSERT INTO users (name) VALUES (%s) RETURNING id"
@@ -38,3 +40,16 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def restaurants(user):
+    restaurants = []
+
+    sql = "SELECT restaurants.* FROM restaurants INNER JOIN reviews ON reviews.restaurant_id = restaurants.id WHERE reviews.user_id = %s "
+    values = [user.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        restaurant = Restaurant(row['name'], row['category'], row['id'])
+        restaurants.append(restaurant)
+
+    return restaurants
+    

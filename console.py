@@ -66,5 +66,8 @@ review_repository.save(review1)
 review8 = Review(user1, restaurant6, '4 stars, excelletn selection for an aperitivo at competitive prices')
 review_repository.save(review1)
 
+restaurants = user_repository.restaurants(user1)
+
+
 pdb.set_trace()
 
