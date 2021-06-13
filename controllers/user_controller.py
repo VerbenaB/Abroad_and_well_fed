@@ -9,7 +9,7 @@ users_blueprint = Blueprint("users", __name__)
 @users_blueprint.route("/users")
 def users():
     users = user_repository.select_all()
-    return render_template("user/index.html", users = users)
+    return render_template("users/index.html", users = users)
 
 
 
