@@ -31,5 +31,13 @@ def create_review():
     review_repository.save(review)
     return redirect ('/reviews')
 
+# DELETE
+@reviews_blueprint.route("/reviews/<id>/delete", methods=['POST'])
+def delete_review(id):
+    review_repository.delete(id)
+    return redirect ('/reviews')
+
+
+
 
     
