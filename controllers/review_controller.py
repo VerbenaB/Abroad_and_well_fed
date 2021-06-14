@@ -40,7 +40,16 @@ def edit_review(id):
     return render_template("reviews/edit.html", review=review, users=users, restaurants=restaurants)
 
 # UPDATE
-
+@reviews_blueprint.route("/reviews/<id>", methods=['POST'])
+def update_review(id):
+    user_id = request.form['user_id']
+    restaurant_id = request.form['restaurant_id']
+    feedback = request.form['feedback']
+    user = user_repository.select(user_id)
+    restaurant = restaurant_repository.select(restaurant_id)
+    update_review = Review(user, restaurant, feedback, id)
+    review_repository.update(update_review)
+    return redirect("/reviews")
 
 # DELETE
 @reviews_blueprint.route("/reviews/<id>/delete", methods=['POST'])

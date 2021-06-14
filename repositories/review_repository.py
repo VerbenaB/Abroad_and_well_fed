@@ -33,6 +33,13 @@ def select(id):
     if result is not None:
         review = Review(result['user_id'], result['restaurant_id'], result ['feedback'], result['id'])
     return review 
+    
+
+def update(review):
+    sql = "UPDATE reviews SET (user_id, restaurant_id, feedback) = (%s, %s, %s) WHERE id = %s"
+    values = [review.user.id, review.restaurant.id, review.feedback, review.id]
+    run_sql(sql, values)
+
 
 def delete_all():
     sql = "DELETE FROM reviews"
