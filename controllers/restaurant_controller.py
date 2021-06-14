@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.restaurant import Restaurant
 import repositories.restaurant_repository as restaurant_repository
@@ -16,4 +16,8 @@ def show(id):
     users = restaurant_repository.users(restaurant)
     return render_template("restaurants/show.html", restaurant=restaurant, users=users)
 
-    
+@restaurants_blueprint.route("/restaurants/new", methods=['GET'])
+def new_restaurant():
+    return render_template("/restaurants/new.html")
+
+
