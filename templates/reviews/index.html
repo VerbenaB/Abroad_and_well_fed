@@ -13,11 +13,13 @@
     <li>
         {{review.user.name}} - {{review.restaurant.name}}
      <p> "{{review.feedback}}"</p>
+     <a href="/reviews/{{review.id}}/edit">edit</a> 
      <p>
          <form action="/reviews/{{review.id}}/delete" method="POST">
             <input type="submit" value="delete">
         </form>
      </p>
+     
     </li>
     {% endfor %}
 </ul>

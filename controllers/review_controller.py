@@ -39,6 +39,8 @@ def edit_review(id):
     restaurants = restaurant_repository.select_all()
     return render_template("reviews/edit.html", review=review, users=users, restaurants=restaurants)
 
+# UPDATE
+
 
 # DELETE
 @reviews_blueprint.route("/reviews/<id>/delete", methods=['POST'])

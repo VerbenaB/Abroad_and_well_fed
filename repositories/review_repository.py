@@ -24,6 +24,16 @@ def select_all():
         reviews.append(review)
     return reviews
 
+def select(id):
+    review = None
+    sql = "SELECT * FROM reviews WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    
+    if result is not None:
+        review = Review(result['user_id'], result['restaurant_id'], result ['feedback'], result['id'])
+    return review 
+
 def delete_all():
     sql = "DELETE FROM reviews"
     run_sql(sql)
