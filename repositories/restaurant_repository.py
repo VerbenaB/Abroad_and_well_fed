@@ -1,6 +1,9 @@
 from db.run_sql import run_sql
 from models.restaurant import Restaurant
 from models.user import User
+from models.review import Review
+
+import repositories.user_repository as user_repository
 
 def save(restaurant):
     sql = "INSERT INTO restaurants (name, category) VALUES (%s, %s) RETURNING id"
@@ -52,6 +55,19 @@ def users(restaurant):
     return users
 
 
+def feedback_1(restaurant):
+    feedbacks_1= []
+
+    sql = "SELECT reviews.feedback,id,  user_id FROM reviews WHERE reviews.restaurant_id =%s"
+    values = [restaurant.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        user = user_repository.select(row['user_id'])
+        review = Review(user, restaurant, row['feedback'], row['id'])
+        feedbacks_1.append(review)
+
+    return feedbacks_1
 
 
 

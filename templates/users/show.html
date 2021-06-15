@@ -7,7 +7,19 @@
 
 <ul>
     {% for restaurant in restaurants%}
-    <li> {{restaurant.name}}</li>
+
+    <li> {{restaurant.name}}:
+        {% for f in feedbacks %}
+            {% if f.restaurant.id == restaurant.id %}
+            <br>
+            <span><i>"{{f.feedback}}"</i> </span>
+            {% endif %}
+        {% endfor %}
+    </li>
+
     {% endfor %}
+
+    
 </ul>
+
 {% endblock %}

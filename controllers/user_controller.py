@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request, redirect
+from controllers.review_controller import reviews
+
+from flask import Flask, render_template
 from flask import Blueprint
+
 from models.user import User
+
 import repositories.user_repository as user_repository
 
 users_blueprint = Blueprint("users", __name__)
@@ -16,7 +20,8 @@ def users():
 def show(id):
     user = user_repository.select(id)
     restaurants = user_repository.restaurants(user)
-    return render_template("users/show.html", user=user, restaurants=restaurants)
+    feedbacks = user_repository.feedback(user)
+    return render_template("users/show.html", user=user, restaurants=restaurants, feedbacks=feedbacks)
 
 
 
