@@ -6,24 +6,23 @@
 
 <h4>Category: {{restaurant.category}} </h4>
 
-<h5> Reviews: </h5>
+<h4> Reviews </h4>
 
-<ul>
-    {% for user in users %}
+<div>
+    <ul>
+        {% for user in users %}
 
-    <li> {{user.name}}
-        {% for feedback in feedbacks_1%}
-            {% if feedback.user.id == user.id%}
-            <br>
-            <span><i>"{{feedback.feedback}}"</i></span>
-            {% endif %}
+        <li> {{user.name}}
+            {% for feedback in feedbacks_1%}
+                {% if feedback.user.id == user.id%}
+                <br>
+                <span><i>"{{feedback.feedback}}"</i></span>
+                {% endif %}
+            {% endfor %}
+        </li>
+
         {% endfor %}
-    </li>
-
-    {% endfor %}
-
-    
-</ul>
-
+    </ul>
+</div>
 {% endblock %}
 

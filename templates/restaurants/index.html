@@ -4,7 +4,7 @@
 <h2>Restaurants</h2>
 
 <p>
-    <a href="/restaurants/new">New restaurant</a>
+    Add a <a href="/restaurants/new">new restaurant</a>
 </p>
 
 
@@ -16,7 +16,7 @@
     </tr>
     {% for restaurant in restaurants %}
     <tr>
-        <td><a href="/restaurants/{{ restaurant.id}}"> {{restaurant.name}}</a></td>
+        <td><a class="table-restaurants" href="/restaurants/{{ restaurant.id}}"> {{restaurant.name}}</a></td>
         <td> </td>
         <td>{{restaurant.category}}</td>
     </tr>

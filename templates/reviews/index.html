@@ -8,15 +8,15 @@
     <a href="/reviews/new">New review</a>
 </p>
 
-<ul>
+<ul class="review-container">
     {% for review in reviews %}
-    <li>
+    <li class="review-cont-items">
         {{review.user.name}} - {{review.restaurant.name}}
-     <p> "{{review.feedback}}"</p>
+     <p><i> "{{review.feedback}}"</i></p>
      <a href="/reviews/{{review.id}}/edit">edit</a> 
      <p>
          <form action="/reviews/{{review.id}}/delete" method="POST">
-            <input type="submit" value="delete">
+            <input class="button-submit" type="submit" value="delete">
         </form>
      </p>
      
