@@ -7,19 +7,19 @@
 <p>
     <a href="/reviews/new">New review</a>
 </p>
-
+<hr>
 <ul class="review-container">
     {% for review in reviews %}
     <li class="review-cont-items">
         {{review.user.name}} - {{review.restaurant.name}}
      <p><i> "{{review.feedback}}"</i></p>
-     <a href="/reviews/{{review.id}}/edit">edit</a> 
+     <a class="table-restaurants" href="/reviews/{{review.id}}/edit">edit</a> 
      <p>
          <form action="/reviews/{{review.id}}/delete" method="POST">
             <input class="button-submit" type="submit" value="delete">
         </form>
      </p>
-     
+     <hr>
     </li>
     {% endfor %}
 </ul>

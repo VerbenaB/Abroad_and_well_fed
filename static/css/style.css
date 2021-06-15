@@ -70,6 +70,11 @@ a:hover {
     text-decoration: underline;
 }
 
+hr {
+    width: 20cm;
+}
+
+
 .table-restaurants {
     color: white;
 }
@@ -97,6 +102,3 @@ a:hover {
     display: inline;
     margin: 4px;
 }
-
-
-
