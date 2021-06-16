@@ -3,7 +3,7 @@
 
 <h2>Update your Review</h2>
 
-<form action="/reviews/{{review.id}}" method="POST">
+<form class="form-review" action="/reviews/{{review.id}}" method="POST">
     <div>
         <label for="user">User:</label>
         <select name="user_id" id="user">
@@ -14,6 +14,7 @@
             {% endfor %}
         </select>
     </div>
+    <br>
     <div>
         <label for="restaurant">Restaurant:</label>
         <select name="restaurant_id" id="restaurant">
@@ -24,13 +25,14 @@
             {% endfor %}
         </select>
     </div>
+    <br>
     <div>
         <label for="feedback">Review:</label>
-            <input id="feedback" name="feedback" value="{{review.feedback}}" type="text"  required>
+            <input id="feedback" name="feedback" value="{{review.feedback}}" type="text" required>
     </div>
 
     <div>
-        <input type="submit">
+        <input class="button-submit" type="submit">
     </div>
 </form>
 
