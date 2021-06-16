@@ -15,10 +15,11 @@
         <li> {{user.name}}
             {% for feedback in feedbacks_1%}
                 {% if feedback.user.id == user.id%}
-                <br>
+                <br />
                 <span><i>"{{feedback.feedback}}"</i></span>
                 {% endif %}
             {% endfor %}
+        <hr>
         </li>
 
         {% endfor %}

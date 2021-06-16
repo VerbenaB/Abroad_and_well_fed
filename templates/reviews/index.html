@@ -13,12 +13,14 @@
     <li class="review-cont-items">
         {{review.user.name}} - {{review.restaurant.name}}
      <p><i> "{{review.feedback}}"</i></p>
-     <a class="table-restaurants" href="/reviews/{{review.id}}/edit">edit</a> 
-     <p>
-         <form action="/reviews/{{review.id}}/delete" method="POST">
-            <input class="button-submit" type="submit" value="delete">
-        </form>
-     </p>
+     <div>
+        <a class="review-edit" href="/reviews/{{review.id}}/edit">edit</a> 
+        <p>
+            <form action="/reviews/{{review.id}}/delete" method="POST">
+                <input class="button-submit" type="submit" value="delete">
+            </form>
+        </p>
+     </div>
      <hr>
     </li>
     {% endfor %}
