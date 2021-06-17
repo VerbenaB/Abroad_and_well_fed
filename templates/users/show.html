@@ -1,26 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{user.name}}</h2>
+
+<h3>{{user.name}}</h3>
 
 <h4>Reviews</h4>
 
 <ul>
     {% for restaurant in restaurants%}
 
-    <li> {{restaurant.name}}:
+    <li class="review-cont-items"> {{restaurant.name}}:
         {% for f in feedbacks %}
             {% if f.restaurant.id == restaurant.id %}
             <br>
             <span><i>"{{f.feedback}}"</i> </span>
             {% endif %}
         {% endfor %}
+        <hr>
     </li>
-
-    <div>
-        <a class="reviews-edit" href="/reviews/{{id}}/edit">edit</a> 
-    </div>
-    <hr>
 
     {% endfor %}
 

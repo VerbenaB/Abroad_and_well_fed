@@ -1,5 +1,20 @@
-.form-review{
-    
+form textarea{
+    width: 200px;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    resize: vertical;
 }
 
+select {
+    padding: 5px 5px 5px 0;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+input[type="text"] {
+    padding: 5px 5px 5px 0;
+    display: inline-block;
+    border-radius: 4px;
+}
 
