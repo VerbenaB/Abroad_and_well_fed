@@ -11,8 +11,11 @@ Install psycopg2 (https://pypi.org/project/psycopg2/).
 Navigate to wherever you stored the restaurant's reviews directory in your command line.
 
 createdb Italian_restaurants
+
 psql -d Italian_restaurants -f db/Italian_restaurants.sql
+
 python3 console.py
+
 q (to quit pdb)
 
 flask run
