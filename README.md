@@ -23,4 +23,4 @@ flask run
 Copy the address where the app is running into your browser’s address bar
 
 ### Techonologies used
-Flask, psycopg2, postgreSQL, VSCode, Google Chrome
+Python, Flask, psycopg2, postgreSQL, SQL, HTML, CSS
